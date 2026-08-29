@@ -1,0 +1,126 @@
+// Gedeelde tabelopmaak + meeluistersessies.
+
+.tabel-scroll {
+  overflow-x: auto;
+}
+
+.tabel {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+
+  th,
+  td {
+    text-align: left;
+    padding: 9px 12px;
+  }
+
+  thead th {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--inkt-3);
+    border-bottom: 1px solid var(--lijn);
+    white-space: nowrap;
+
+    span {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+  }
+
+  tbody tr:not(:last-child) {
+    border-bottom: 1px solid var(--lijn);
+  }
+
+  tbody th {
+    font-weight: 600;
+    color: var(--inkt);
+    white-space: nowrap;
+  }
+
+  td {
+    color: var(--inkt-2);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+// Cijfertabellen: waarden rechts uitgelijnd onder hun weekkop.
+.tabel--cijfers {
+  th:not(:first-child),
+  td:not(:first-child) {
+    text-align: right;
+  }
+}
+
+// Meeluistersessies ----------------------------------------------------------
+
+.sessies__datum {
+  color: var(--inkt);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sessies__scores {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.sessies__actie {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.score {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+
+  // Achtergrondtinten uit het officiële KPN-palet;
+  // tekst een donkere stap van dezelfde kleur voor leesbaarheid.
+  &--g {
+    background: var(--groen-100);
+    color: var(--groen-800);
+  }
+
+  &--v {
+    background: var(--blauw-tint);
+    color: var(--blauw-tekst);
+  }
+
+  &--n {
+    background: var(--oranje-tint);
+    color: var(--oranje-tekst);
+  }
+
+  &--a {
+    background: var(--rood-tint);
+    color: var(--rood-tekst);
+  }
+}
+
+.sessies__legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--lijn);
+  font-size: 12.5px;
+  color: var(--inkt-2);
+}
+
+.sessies__legenda-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

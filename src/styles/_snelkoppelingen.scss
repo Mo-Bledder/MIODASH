@@ -1,0 +1,85 @@
+.snelkoppelingen__lijst {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.snelkoppeling {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: var(--radius-klein);
+  border: 1px solid var(--lijn);
+  background: var(--vlak);
+  text-align: left;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--groen-600);
+    background: var(--groen-50);
+
+    .snelkoppeling__pijl {
+      color: var(--groen-700);
+    }
+  }
+}
+
+.snelkoppeling__icoon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-klein);
+  background: var(--groen-50);
+  color: var(--groen-700);
+  flex-shrink: 0;
+}
+
+.snelkoppeling__tekst {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.snelkoppeling__naam {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.snelkoppeling__omschrijving {
+  font-size: 12.5px;
+  color: var(--inkt-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.snelkoppeling__pijl {
+  color: var(--inkt-3);
+  transition: color 0.15s ease;
+}
+
+.snelkoppeling__code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--groen-50);
+  color: var(--groen-800);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.snelkoppeling.is-gekopieerd .snelkoppeling__code {
+  background: var(--groen-600);
+  color: #fff;
+  letter-spacing: normal;
+}

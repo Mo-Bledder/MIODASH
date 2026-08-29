@@ -1,0 +1,83 @@
+// Design tokens — het huidige officiële KPN-designsysteem.
+// Kleuren en fonts komen rechtstreeks van static.kpn.com/ds
+// (kpn-design-tokens.css + de originele woff2-fontbestanden).
+
+@font-face {
+  font-family: 'KPN Metric';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/metric-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KPN Metric';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/metric-semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KPN Metric';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/metric-bold.woff2') format('woff2');
+}
+
+// Het brede display-font van de grote kpn.com-koppen ("Mijn producten").
+@font-face {
+  font-family: 'KPN Extended';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/kpn-extended.woff2') format('woff2');
+}
+
+:root {
+  // KPN-groen (officiële primary-schaal)
+  --groen-50: #f0fcf0; // primary-100
+  --groen-100: #d9f6d9; // primary-200
+  --groen-fel: #00c300; // primary-500 — het felle merkgroen (topbalk, accenten)
+  --groen-600: #00a800; // primary-600 — knoppen, actieve nav, paginatitels
+  --groen-700: #008200; // primary-700 — hover en kaarttitels
+  --groen-800: #00641a; // primary-800 — donkerste tekstaccent
+
+  // Inkt (officiële neutral-schaal)
+  --inkt: #131313; // neutral-900, font-color
+  --inkt-2: #737373; // neutral-500, subtle-informative
+  --inkt-3: #939393; // neutral-400
+  --pagina: #f3f3f3; // neutral-50
+  --vlak: #ffffff;
+  --vlak-zacht: #f3f3f3;
+  --lijn: #e3e3e3; // neutral-100
+
+  // Accenten (officieel: secondary / tertiary / caution / error)
+  --blauw-link: #0066ee; // secondary-500, font-color-link
+  --blauw-tint: #e5f0fd; // secondary-100
+  --blauw-tekst: #13417e; // secondary-800
+  --geel: #ddff44; // tertiary-500
+  --oranje: #ff8811; // caution-500
+  --oranje-tint: #ffeddb; // caution-100
+  --oranje-zacht: #fff6ed; // caution-50
+  --oranje-tekst: #b74e08; // caution-700
+  --rood: #e22e22; // error-500
+  --rood-tint: #ffe3e3; // error-100
+  --rood-zacht: #fff1f1; // error-50
+  --rood-tekst: #a30f0f; // error-700
+
+  // Richting
+  --positief: #008200;
+  --negatief: #c01313; // error-600
+
+  // Vorm — royale rondingen zoals op kpn.com, KPN box-shadow niveau 1
+  --radius-kaart: 24px;
+  --radius-klein: 12px;
+  --schaduw: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  // Typografie: KPN Metric voor alles, KPN Extended voor de grote koppen
+  --lettertype: 'KPN Metric', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --lettertype-kop: 'KPN Metric', 'Segoe UI', Arial, sans-serif;
+  --lettertype-display: 'KPN Extended', 'KPN Metric', 'Segoe UI', sans-serif;
+}

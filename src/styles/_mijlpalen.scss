@@ -1,0 +1,97 @@
+.mijlpalen__pad {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.mijlpaal {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 0 6px;
+
+  // Verbindingslijn tussen de stappen
+  &:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: calc(-50% + 27px);
+    right: calc(50% + 27px);
+    height: 2px;
+    border-radius: 1px;
+    background: var(--lijn);
+  }
+
+  &.is-behaald:not(:first-child)::before {
+    background: var(--groen-100);
+  }
+}
+
+.mijlpaal__cirkel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--vlak-zacht);
+  color: var(--inkt-3);
+}
+
+.mijlpaal.is-behaald .mijlpaal__cirkel {
+  background: var(--groen-600);
+  color: #fff;
+}
+
+.mijlpaal__vink {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid var(--groen-600);
+  color: var(--groen-700);
+}
+
+.mijlpaal__naam {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--inkt-3);
+  max-width: 120px;
+}
+
+.mijlpaal.is-behaald .mijlpaal__naam {
+  color: var(--inkt);
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .mijlpalen__pad {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .mijlpaal {
+    flex-direction: row;
+    text-align: left;
+    padding: 0;
+
+    &:not(:first-child)::before {
+      display: none;
+    }
+  }
+
+  .mijlpaal__naam {
+    max-width: none;
+  }
+}

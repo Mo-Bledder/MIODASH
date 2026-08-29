@@ -1,0 +1,20 @@
+.paginakop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+// Paginatitels in KPN Extended — het brede display-font van kpn.com.
+.paginakop__titel {
+  font-family: var(--lettertype-display);
+  font-size: 25px;
+  font-weight: 780;
+  line-height: 1.15;
+}
+
+.paginakop__datum {
+  margin-top: 2px;
+  font-size: 13.5px;
+  color: var(--inkt-2);
+}

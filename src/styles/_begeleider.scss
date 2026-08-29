@@ -1,0 +1,272 @@
+// Begeleidersweergave: MIO's-overzicht en tussenstand-pagina's.
+
+.avatar--klein {
+  width: 28px;
+  height: 28px;
+  font-size: 10.5px;
+}
+
+.mio-rij {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mio-rij__naam {
+  font-weight: 600;
+  color: var(--inkt);
+  white-space: nowrap;
+}
+
+.mio-rij__leeg {
+  color: var(--inkt-3);
+}
+
+// Attentiemarkering (7+ dagen geen sessie, 0 sessies, enz.)
+.attentie {
+  display: inline-flex;
+  color: var(--oranje);
+}
+
+.is-attentie {
+  color: var(--oranje-tekst);
+  font-weight: 600;
+}
+
+// Actieknoppen in tabelrijen
+.tabel__acties {
+  text-align: right;
+  white-space: nowrap;
+
+  > * + * {
+    margin-left: 8px;
+  }
+}
+
+.knop-ghost-klein {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid var(--lijn);
+  border-radius: 999px;
+  background: var(--vlak);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--inkt-2);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+
+  &:hover {
+    border-color: var(--groen-600);
+    color: var(--groen-800);
+  }
+}
+
+.knop-primair--klein {
+  padding: 4px 12px;
+  font-size: 12.5px;
+}
+
+// Actielijst ("Vandaag te doen") en volgende-stap-kaart: rijen met icoon en link
+.actie {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--lijn);
+  }
+}
+
+.actie__icoon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--groen-50);
+  color: var(--groen-700);
+  flex-shrink: 0;
+}
+
+.actie__tekst {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.actie .knop-link {
+  white-space: nowrap;
+}
+
+// De actielijst en volgende stap krijgen een zachte groene tint — het zijn
+// de kaarten waar de dag mee begint.
+.actielijst,
+.volgende-stap {
+  background: var(--groen-50);
+  border-color: var(--groen-100);
+
+  .actie:not(:last-child) {
+    border-bottom-color: var(--groen-100);
+  }
+
+  .actie__icoon {
+    background: var(--vlak);
+  }
+}
+
+.volgende-stap__ondertitel {
+  margin: -4px 0 8px;
+  font-size: 13px;
+  color: var(--inkt-2);
+}
+
+// Kopactieknoppen (dashboard, vandaag, agenda)
+.paginakop__acties {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// Telchips (overdrachten: aantal MIO's / trainers)
+.telchip {
+  display: inline-grid;
+  place-items: center;
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--groen-50);
+  color: var(--groen-800);
+  font-size: 12px;
+  font-weight: 700;
+
+  &--blauw {
+    background: var(--blauw-tint);
+    color: var(--blauw-tekst);
+  }
+}
+
+// Voortgangskolom in de MIO-tabel
+.mio-rij__voortgang {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 170px;
+}
+
+.mio-rij__percentage {
+  font-size: 12.5px;
+  color: var(--inkt-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.meter__vulling.is-laag {
+  background: var(--oranje);
+}
+
+// Werkdag-chips (roosterpagina)
+.dagen {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.dagen__dag {
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  padding: 2px 0;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--vlak-zacht);
+  color: var(--inkt-3);
+
+  &.is-werkdag {
+    background: var(--groen-600);
+    color: #fff;
+  }
+}
+
+// KPI-teamtabel
+.kpi-team__totaal {
+  th,
+  td {
+    border-top: 2px solid var(--lijn);
+    font-weight: 700;
+    color: var(--inkt);
+  }
+}
+
+// Trainingsvoortgang: rij met naam, badges en voortgangsbalk
+.voortgang-lijst {
+  display: flex;
+  flex-direction: column;
+}
+
+.voortgang-rij {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--lijn);
+  }
+}
+
+.voortgang-rij__naam {
+  min-width: 190px;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.voortgang-rij__meter {
+  flex: 1;
+}
+
+.voortgang-rij__label {
+  min-width: 100px;
+  text-align: right;
+  font-size: 12.5px;
+  color: var(--inkt-2);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 40px 24px;
+
+  h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+
+  p {
+    max-width: 52ch;
+    font-size: 13.5px;
+    color: var(--inkt-2);
+  }
+}
+
+.placeholder__icoon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--groen-50);
+  color: var(--groen-700);
+}

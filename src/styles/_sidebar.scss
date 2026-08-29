@@ -1,0 +1,215 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 16px 20px;
+  background: var(--vlak);
+  border-right: 1px solid var(--lijn);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 10px 16px;
+}
+
+.sidebar__logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+.sidebar__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sidebar__sectietitel {
+  padding: 0 10px;
+  margin-bottom: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--inkt-3);
+}
+
+.sidebar__lijst {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 10px;
+  border-radius: var(--radius-klein);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--inkt-2);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+
+  .icoon {
+    color: var(--inkt-3);
+    transition: color 0.15s ease;
+  }
+
+  &:hover {
+    background: var(--vlak-zacht);
+    color: var(--inkt);
+  }
+
+  &.is-actief {
+    background: var(--groen-50);
+    color: var(--groen-800);
+    font-weight: 600;
+
+    .icoon {
+      color: var(--groen-700);
+    }
+  }
+}
+
+// Attentiestip achter een navigatie-item
+.sidebar__stip {
+  margin-left: auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &--oranje {
+    background: var(--oranje);
+  }
+
+  &--rood {
+    background: var(--rood);
+  }
+}
+
+// Rollenwissel (linksonder, boven de persoonskaart)
+.rolwissel {
+  margin: 0 2px 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--lijn);
+  border-radius: var(--radius-klein);
+  background: var(--pagina);
+}
+
+.rolwissel__label {
+  margin-bottom: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--inkt-3);
+}
+
+.rolwissel__knoppen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.rolwissel__knop {
+  padding: 5px 2px;
+  border-radius: 999px;
+  border: 1px solid var(--lijn);
+  background: var(--vlak);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--inkt-2);
+  text-align: center;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+
+  &:hover {
+    border-color: var(--groen-600);
+    color: var(--groen-800);
+  }
+
+  &.is-actief {
+    background: var(--groen-600);
+    border-color: var(--groen-600);
+    color: #fff;
+  }
+}
+
+.sidebar__voet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 2px 0;
+  border-top: 1px solid var(--lijn);
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 12.5px;
+  }
+
+  .knop-icoon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.sidebar__persoon {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar__naam {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar__functie {
+  font-size: 12px;
+  color: var(--inkt-3);
+}
+
+@media (max-width: 880px) {
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    padding: 12px 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--lijn);
+  }
+
+  .sidebar__logo {
+    padding: 0;
+  }
+
+  .sidebar__nav {
+    display: none;
+  }
+
+  .sidebar__voet {
+    border-top: none;
+    padding: 0;
+    margin-left: auto;
+  }
+
+  .sidebar__persoon {
+    display: none;
+  }
+}

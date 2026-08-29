@@ -1,0 +1,125 @@
+// KPI-pagina: tegels met trendlijn. De lijn is bewust ingetogen grijs —
+// de grote waarde is de held, het laatste punt krijgt het KPN-groene accent.
+
+.kpi-tegels {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 14px;
+}
+
+.kpi-tegel {
+  padding: 14px 16px;
+}
+
+.kpi-tegel__kop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.kpi-tegel__naam {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--inkt-2);
+}
+
+.kpi-tegel__doel {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--inkt-3);
+  white-space: nowrap;
+}
+
+.kpi-tegel__waarde {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 6px;
+  font-family: var(--lettertype-kop);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.kpi-tegel__delta {
+  font-family: var(--lettertype);
+  font-size: 12.5px;
+  font-weight: 700;
+
+  &.is-positief {
+    color: var(--positief);
+  }
+
+  &.is-negatief {
+    color: var(--negatief);
+  }
+}
+
+.kpi-tegel__periode {
+  margin-top: 1px;
+  font-size: 11.5px;
+  color: var(--inkt-3);
+}
+
+.grafiek {
+  margin-top: 10px;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+}
+
+.grafiek__lijn {
+  fill: none;
+  stroke: #b3b3b3;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.grafiek__punt {
+  fill: #b3b3b3;
+  stroke: var(--vlak);
+  stroke-width: 2;
+
+  &.is-laatste {
+    fill: var(--groen-600);
+  }
+
+  &:focus-visible {
+    outline: none;
+    stroke: var(--groen-600);
+  }
+}
+
+.grafiek__weken {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 2px 0;
+  font-size: 10.5px;
+  color: var(--inkt-3);
+}
+
+// Gedeelde tooltip (gepositioneerd vanuit main.ts)
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  transform: translate(-50%, -100%);
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: var(--inkt);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: var(--schaduw);
+}

@@ -1,0 +1,296 @@
+// Basis: reset, typografie, app-indeling en gedeelde bouwstenen.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--lettertype);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--inkt);
+  background: var(--pagina);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+// KPN Metric draagt alle koppen en grote cijfers, zoals op kpn.com.
+// Paginatitels zijn KPN-groen ("Daarom zit je goed bij KPN"), kaarttitels
+// een tint donkerder voor het contrast op wit.
+h1,
+h2,
+h3 {
+  font-family: var(--lettertype-kop);
+}
+
+h1 {
+  color: var(--groen-600);
+}
+
+h2 {
+  color: var(--groen-700);
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--groen-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.icoon {
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: -0.18em;
+}
+
+// App-indeling ---------------------------------------------------------------
+
+.app {
+  display: grid;
+  grid-template-columns: 264px minmax(0, 1fr);
+  min-height: 100vh;
+  border-top: 4px solid var(--groen-600);
+}
+
+.hoofd {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 1280px;
+  padding: 16px 32px 24px;
+  margin: 0 auto;
+}
+
+.hoofd__raster {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .hoofd__raster {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 880px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .hoofd {
+    padding: 20px 16px 40px;
+  }
+}
+
+// Gedeelde bouwstenen ---------------------------------------------------------
+
+.kaart {
+  background: var(--vlak);
+  border: 1px solid var(--lijn);
+  border-radius: var(--radius-kaart);
+  box-shadow: var(--schaduw);
+  padding: 18px 20px;
+}
+
+.kaart__kop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}
+
+.sectietitel {
+  font-family: var(--lettertype-kop);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: var(--vlak-zacht);
+  color: var(--inkt-2);
+
+  &--groen {
+    background: var(--groen-50);
+    color: var(--groen-800);
+  }
+
+  // KPN-blauw (officieel: secondary) voor skill-labels
+  &--blauw {
+    background: var(--blauw-tint);
+    color: var(--blauw-tekst);
+  }
+
+  // KPN-geel accent, zoals de "Consument"-pil op kpn.com
+  &--geel {
+    background: var(--geel);
+    color: var(--inkt);
+  }
+}
+
+.teller {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--groen-50);
+  color: var(--groen-800);
+  white-space: nowrap;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--groen-600);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+// Knoppen --------------------------------------------------------------------
+
+.knop-icoon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--inkt-2);
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: var(--vlak-zacht);
+  }
+
+  &--rand {
+    background: var(--vlak);
+    border: 1px solid var(--lijn);
+    position: relative;
+  }
+
+  &.heeft-melding::after {
+    content: '';
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--groen-600);
+    border: 2px solid var(--vlak);
+  }
+}
+
+// Tekstlinks zijn blauw, zoals op kpn.com ("Ontdek KPN SuperWifi →").
+.knop-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--blauw-link);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Primaire KPN-knop: groene pil met witte tekst, zoals de CTA's op kpn.com.
+.knop-primair {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: var(--groen-600);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #fff;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: var(--groen-700);
+  }
+}
+
+// Voortgangsmeter — track is een lichtere stap van dezelfde groene reeks.
+
+.meter {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--groen-50);
+  box-shadow: inset 0 0 0 1px var(--lijn);
+  overflow: hidden;
+}
+
+.meter__vulling {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--groen-600);
+  transition: width 0.4s ease;
+}
+
+// Alleen zichtbaar voor schermlezers.
+.visueel-verborgen {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

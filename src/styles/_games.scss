@@ -1,0 +1,43 @@
+.game-kaarten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: var(--groen-600);
+  }
+}
+
+.game__beeld {
+  display: grid;
+  place-items: center;
+  padding: 22px 0;
+  border-radius: var(--radius-klein);
+  background: var(--vlak-zacht);
+  margin-bottom: 6px;
+}
+
+.game__naam {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.game__omschrijving {
+  flex: 1;
+  font-size: 13.5px;
+  color: var(--inkt-2);
+  max-width: 48ch;
+}
+
+.game .knop-link {
+  margin-top: 6px;
+}

@@ -1,0 +1,168 @@
+// Agenda: weekkalender met tijdas en geplaatste blokken.
+
+.agenda-kaart {
+  padding: 18px 20px 14px;
+}
+
+.agenda {
+  display: grid;
+  grid-template-columns: 52px repeat(5, minmax(0, 1fr));
+  gap: 0 10px;
+}
+
+.agenda__tijden {
+  position: relative;
+  height: 640px;
+  // Uitlijnen met het vlak: de dagkop erboven is ±46px hoog.
+  margin-top: 46px;
+}
+
+.agenda__uur {
+  position: absolute;
+  right: 6px;
+  transform: translateY(-50%);
+  font-size: 10.5px;
+  color: var(--inkt-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.agenda__kolom {
+  min-width: 0;
+}
+
+.agenda__dagkop {
+  height: 46px;
+  padding-bottom: 8px;
+}
+
+.agenda__dagnaam {
+  font-family: var(--lettertype-kop);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.agenda__datum {
+  font-size: 11px;
+  color: var(--inkt-3);
+}
+
+.agenda__vlak {
+  position: relative;
+  height: 640px;
+  border-top: 1px solid var(--lijn);
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 63px,
+    var(--lijn) 63px,
+    var(--lijn) 64px
+  );
+}
+
+// Blokken in één zachte tintkleur — zonder gekleurde randjes.
+.agenda__item {
+  position: absolute;
+  left: 0;
+  right: 4px;
+  overflow: hidden;
+  padding: 6px 9px;
+  border-radius: 8px;
+  border: none;
+  background: var(--vlak-zacht);
+  font-size: 11.5px;
+  line-height: 1.35;
+
+  &--training {
+    background: var(--oranje-tint);
+  }
+
+  &--skill {
+    background: var(--blauw-tint);
+  }
+
+  &--meeting {
+    background: var(--vlak-zacht);
+  }
+
+  &.is-geannuleerd {
+    background: var(--rood-tint);
+
+    .agenda__titel {
+      color: var(--rood-tekst);
+    }
+  }
+}
+
+.agenda__titel {
+  font-weight: 700;
+  font-size: 11.5px;
+}
+
+.agenda__chip {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--inkt);
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  vertical-align: 1px;
+}
+
+.agenda__personen {
+  font-weight: 600;
+  color: var(--inkt-2);
+}
+
+.agenda__notitie {
+  color: var(--inkt-3);
+  font-size: 11px;
+}
+
+.agenda__legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--lijn);
+  font-size: 12.5px;
+  color: var(--inkt-2);
+}
+
+.agenda__legenda-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.agenda__blok {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+
+  &--training {
+    background: var(--oranje-tint);
+  }
+
+  &--skill {
+    background: var(--blauw-tint);
+  }
+
+  &--meeting {
+    background: var(--vlak-zacht);
+    border: 1px solid var(--lijn);
+  }
+
+  &--geannuleerd {
+    background: var(--rood-tint);
+  }
+}
+
+@media (max-width: 1100px) {
+  .agenda {
+    grid-template-columns: 52px repeat(5, minmax(150px, 1fr));
+    overflow-x: auto;
+  }
+}

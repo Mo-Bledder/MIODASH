@@ -1,0 +1,182 @@
+.voortgang__samenvatting {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.voortgang__week {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 66px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--groen-50);
+}
+
+.voortgang__week-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--groen-800);
+}
+
+.voortgang__week-getal {
+  font-family: var(--lettertype-kop);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--groen-800);
+}
+
+.voortgang__fase {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.voortgang__skill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--inkt-2);
+
+  .icoon {
+    color: var(--inkt-3);
+  }
+}
+
+.voortgang__percentage {
+  font-size: 12.5px;
+  color: var(--inkt-2);
+}
+
+// Blokken (leerdoel, sessie, trainingen) --------------------------------------
+
+.voortgang__rij {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
+.voortgang__blok {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--lijn);
+
+  h3 {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--inkt-2);
+    margin-bottom: 6px;
+  }
+}
+
+.voortgang__kolommen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+  align-items: start;
+}
+
+.voortgang__blok-kop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  h3 {
+    margin-bottom: 0;
+  }
+}
+
+.voortgang__leeg {
+  font-size: 13px;
+  color: var(--inkt-3);
+  margin-bottom: 8px;
+}
+
+.voortgang__leerdoel {
+  font-size: 13.5px;
+}
+
+.voortgang__sessie {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.voortgang__sessie-datum {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.voortgang__sessie-coach {
+  font-size: 12.5px;
+  color: var(--inkt-2);
+}
+
+.voortgang__sessie .knop-link {
+  margin-top: 5px;
+}
+
+// Trainingen ------------------------------------------------------------------
+
+.voortgang__groep {
+  margin: 6px 0 2px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--inkt-3);
+}
+
+.training {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 0;
+}
+
+.training__vink {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--lijn);
+  color: #fff;
+}
+
+.training.is-afgerond .training__vink {
+  background: var(--groen-600);
+  border-color: var(--groen-600);
+}
+
+.training__naam {
+  font-size: 13.5px;
+  color: var(--inkt-2);
+}
+
+.training.is-afgerond .training__naam {
+  color: var(--inkt);
+  font-weight: 500;
+}
+
+.training__status {
+  margin-left: auto;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--vlak-zacht);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--inkt-3);
+  white-space: nowrap;
+}

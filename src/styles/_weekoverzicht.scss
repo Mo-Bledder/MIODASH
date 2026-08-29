@@ -1,0 +1,88 @@
+// Week overzicht: uitklapbare weekkaarten met notities per MIO.
+
+.weekkaarten {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.weekkaart {
+  background: var(--vlak);
+  border: 1px solid var(--lijn);
+  border-radius: var(--radius-kaart);
+  box-shadow: var(--schaduw);
+  overflow: hidden;
+}
+
+.weekkaart__kop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 14px 18px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.weekkaart__titel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--lettertype-kop);
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.weekkaart__meta {
+  flex: 1;
+  font-size: 12.5px;
+  color: var(--inkt-3);
+}
+
+.weekkaart__chevron {
+  font-size: 18px;
+  color: var(--inkt-3);
+  transition: transform 0.2s ease;
+}
+
+.weekkaart[open] .weekkaart__chevron {
+  transform: rotate(90deg);
+}
+
+.weekkaart__inhoud {
+  padding: 2px 18px 16px;
+}
+
+.weeknotitie {
+  display: flex;
+  gap: 14px;
+  padding: 8px 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--lijn);
+  }
+}
+
+.weeknotitie__mio {
+  min-width: 175px;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.weeknotitie__tekst {
+  font-size: 13px;
+  color: var(--inkt-2);
+}
+
+@media (max-width: 720px) {
+  .weeknotitie {
+    flex-direction: column;
+    gap: 2px;
+  }
+}

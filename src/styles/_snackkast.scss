@@ -1,0 +1,162 @@
+// Snackkast: balans, filtertabs en de prijslijst.
+
+.balans {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.balans__label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--inkt-2);
+}
+
+.balans__bedrag {
+  font-family: var(--lettertype-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--groen-800);
+}
+
+// Recente aankopen
+
+.aankopen__periode {
+  font-size: 12px;
+  color: var(--inkt-3);
+}
+
+.aankopen__rij {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+  font-size: 13.5px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--lijn);
+  }
+}
+
+.aankopen__meta {
+  flex: 1;
+  font-size: 12.5px;
+  color: var(--inkt-3);
+}
+
+.aankopen__bedrag {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+// Filtertabs (Alles / Drankjes / Snacks)
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--lijn);
+  background: var(--vlak);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--inkt-2);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+
+  &:hover {
+    border-color: var(--groen-600);
+    color: var(--groen-800);
+  }
+
+  &.is-actief {
+    background: var(--groen-600);
+    border-color: var(--groen-600);
+    color: #fff;
+  }
+}
+
+.tab__aantal {
+  font-size: 11.5px;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+// Prijslijst
+
+.snack-sectie__aantal {
+  font-family: var(--lettertype);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--inkt-3);
+  margin-left: 2px;
+}
+
+.product-raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+  gap: 12px;
+}
+
+.product {
+  position: relative;
+  padding: 14px 16px;
+  border-radius: var(--radius-klein);
+  border: 1px solid var(--lijn);
+  background: var(--vlak);
+}
+
+.product__icoon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--vlak-zacht);
+  background: color-mix(in srgb, var(--product-kleur) 13%, #fff);
+  color: var(--product-kleur);
+}
+
+.product__voorraad {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--oranje-tint);
+  color: var(--oranje-tekst);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.product__naam {
+  margin-top: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.product__variant {
+  font-size: 12px;
+  color: var(--inkt-3);
+}
+
+.product__prijs {
+  margin-top: 6px;
+  font-family: var(--lettertype-kop);
+  font-size: 15px;
+  font-weight: 700;
+}
